@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+</style>
+<button style="text-align:center;"><a href="Coaches">Coaches</a></button>
+<button style="text-align:center;"><a href="Player">Player</a></button>
+<button style="text-align:center;"><a href="Teams">Teams</a></button>
+@if (User.IsInRole("admin"))
+{
+      <section>
+          <h1>Welcome, administrator!</h1>
+      </section>
+}
+else if (User.IsInRole("Coach"))
+{
+    <section>
+        <h1>Welcome, Coach</h1>
+    </section>
+}
+else  if(User.IsInRole("Coach"))
+{
+    <section>
+        <h1>Welcome, Coaches head!</h1>
+    </section>
+
+}
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <form action="/html/tags/html_form_tag_action.cfm" method="post">
+            <div>
+<textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+Hey... say something!
+</textarea>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
